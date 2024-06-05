@@ -1,0 +1,32 @@
+<a href="/">메뉴로 이동</a>
+<h1>available</h1>
+<form id="frmLogin">
+  운전자ID(Email) : <input type="text" name="email" /><br />
+</form>
+<button onclick="available()">상태변경(자동)</button><br />
+<button>상태변경(수동)</button>
+
+<script>
+  const $ = document.querySelector.bind(document);
+  async function available() {
+    var formData = new FormData($('#frmLogin'));
+    var data = {};
+    formData.forEach(function (value, key) {
+      data[key] = value;
+    });
+
+    alert(JSON.stringify(data));
+
+    var url = '/api/users/available';
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    alert('태우지 못하는');
+    const json = await response.json();
+    console.log(JSON.stringify(json));
+  }
+</script>

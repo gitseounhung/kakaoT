@@ -1,25 +1,24 @@
 <html>
 <head>
 <style>
-  th,tr{white-space: nowrap;}
+th,tr{
+  white-space: nowrwap;
+}
 </style>
 </head>
 <body>
 <a href="/">메뉴로 이동</a>
 <h1>회원 리스트</h1>
-
 <table border="1">
   <th>순번</th>
   <th>성명</th>
   <th>역할</th>
   <th>로그인계정</th>
   <th>비밀번호</th>
-  <th>avavilability</th>
+  <th>availablity</th>
   <th>위도</th>
   <th>경도</th>
-
-
-<% for (var i = 0; i < data.length; i++){ %>
+<% for (var i=0; i<data.length; i++){ %>
   <tr>
     <td><%= i+1 %></td>
     <td><%= data[i].name %></td>
@@ -32,6 +31,6 @@
       <td><%= data[i].position.longitude %></td>
     <% } %>
   </tr>
-<% } %>
+  <% } %>
 </body>
 </html>
